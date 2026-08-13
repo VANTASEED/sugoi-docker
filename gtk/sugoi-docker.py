@@ -11,11 +11,31 @@ from gi.repository import Gtk, GLib, Gio, Pango, Gdk, GdkPixbuf
 
 __version__ = "1.0.0"
 
-CMD = "sugoi-docker-cli"
 
-DATA_DIRS = [
-    "/usr/share/sugoi-docker",
-]
+def _resolve_cli():
+    here = os.path.dirname(os.path.abspath(__file__))
+    for name in ("sugoi-docker-cli", "docker.sh"):
+        for base in (here, os.path.join(here, "..")):
+            candidate = os.path.join(base, name)
+            if os.path.isfile(candidate) and os.access(candidate, os.X_OK):
+                return candidate
+    return "sugoi-docker-cli"
+
+
+CMD = _resolve_cli()
+
+
+def _default_data_dirs():
+    dirs = ["/usr/share/sugoi-docker"]
+    appdir = os.environ.get("APPDIR")
+    if appdir:
+        dirs.append(os.path.join(appdir, "usr", "share", "sugoi-docker"))
+    here = os.path.dirname(os.path.abspath(__file__))
+    dirs.append(os.path.join(here, "..", "share", "sugoi-docker"))
+    return dirs
+
+
+DATA_DIRS = _default_data_dirs()
 
 ACCENT_LIGHT = "#3584e4"
 ACCENT_DARK = "#62a0ea"

@@ -6,9 +6,11 @@ License:        MIT
 URL:            https://github.com/horizon/sugoi-docker
 Source0:        %{name}-%{version}.tar.gz
 BuildArch:      noarch
+# Portable dependencies: python3-gobject is the same name on Fedora/SUSE,
+# GTK is pulled in via the auto-generated typelib(Gtk) = 3.0 capability,
+# and pkexec is requested by file path so it resolves across distros.
 Requires:       python3-gobject
-Requires:       typelib-1_0-Gtk-3_0
-Requires:       pkexec
+Requires:       /usr/bin/pkexec
 
 %description
 Sugoi! Docker — a graphical GTK3 interface for controlling the Docker

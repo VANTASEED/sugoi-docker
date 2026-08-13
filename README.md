@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="sugoidocker.png" alt="Sugoi! Docker" width="160">
+  <img src="gtk/icons/sugoi-docker-512.png" alt="Sugoi! Docker" width="160">
 </p>
 
 # Sugoi! Docker
@@ -24,7 +24,7 @@ the time.
 ## Install
 
 Download the package for your distribution from the
-[Releases](https://github.com/horizon/sugoi-docker/releases) page.
+[Releases](https://github.com/VANTASEED/sugoi-docker/releases) page.
 
 | Format | File |
 | --- | --- |
@@ -33,7 +33,27 @@ Download the package for your distribution from the
 | RPM (openSUSE / Fedora) | `sugoi-docker-1.0.0-1.noarch.rpm` |
 | Source | `sugoi-docker-1.0.0.tar.gz` |
 
+## Requirements
+
+- **Docker** installed and running on the system (the app controls it, it does
+  not install it)
+- **systemd** and **polkit** (pkexec) for service control and privilege
+  elevation
+
+The packages resolve their own GUI dependencies automatically:
+
+| Format | GUI dependencies (auto-resolved) |
+| --- | --- |
+| `.deb` | `python3-gi`, `gir1.2-gtk-3.0`, `pkexec` |
+| `.rpm` | `python3-gobject`, GTK 3 typelib, `pkexec` |
+| `.AppImage` | self-contained (bundles Python, GTK 3, and the CLI) |
+
 ### AppImage
+
+Runs on most Linux distributions with no install step. It bundles its own
+Python, GTK 3, and `sugoi-docker-cli`, so nothing needs to be installed apart
+from Docker itself. Note that the AppImage is built on a recent base and
+requires a reasonably modern glibc.
 
 ```bash
 chmod +x sugoi-docker-1.0.0-x86_64.AppImage
@@ -46,11 +66,30 @@ chmod +x sugoi-docker-1.0.0-x86_64.AppImage
 sudo apt install ./sugoi-docker_1.0.0-1_all.deb
 ```
 
-### RPM
+Dependencies (`python3-gi`, `gir1.2-gtk-3.0`, `pkexec`) are resolved
+automatically by apt.
+
+### RPM (openSUSE / Fedora)
 
 ```bash
+# openSUSE
 sudo rpm --import sugoi-docker-pubkey.asc
 sudo zypper install ./sugoi-docker-1.0.0-1.noarch.rpm
+
+# Fedora
+sudo rpm --import sugoi-docker-pubkey.asc
+sudo dnf install ./sugoi-docker-1.0.0-1.noarch.rpm
+```
+
+Dependencies are resolved automatically (`python3-gobject`, GTK 3 typelib,
+`pkexec`).
+
+### Source
+
+```bash
+tar xzf sugoi-docker-1.0.0.tar.gz
+cd sugoi-docker-1.0.0
+sudo ./build.sh
 ```
 
 ## The CLI
@@ -79,19 +118,19 @@ Installed as `sugoi-docker-cli`, or run from this repo as `./docker.sh`.
 ## Build from source
 
 ```bash
-cd packaging && ./build.sh
+./build.sh
 ```
 
 This builds a signed RPM and asks whether to install it.
 
 ## License
 
-[MIT](packaging/LICENSE)
+[MIT](LICENSE)
 
 ---
 
 <p align="center">
-  <img src="VSLogo_White.png" alt="VANTASEED Studio" width="220">
+  <img src="VSLogo_Black.png" alt="VANTASEED Studio" width="220">
   <br>
   Powered by copious amounts of instant noodles, questionable caffeine
   tolerance, and a stubborn refusal to go touch grass.
