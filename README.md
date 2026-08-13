@@ -2,10 +2,10 @@
   <img src="sugoidocker.png" alt="Sugoi! Docker" width="160">
 </p>
 
-# Sugoi! Docker
+<h1 align="center">Sugoi! Docker</h1>
 
 <p align="center">
-  A GTK3 app and CLI tool to control the Docker service on demand.
+  A Linux GTK3 app and CLI tool to control the Docker service on demand.
 </p>
 
 Docker is **not** auto-started on boot by default. Sugoi! Docker lets you start
