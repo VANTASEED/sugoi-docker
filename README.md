@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="packaging/gtk/icons/sugoi-docker-512.png" alt="Sugoi! Docker" width="160">
+  <img src="sugoidocker.png" alt="Sugoi! Docker" width="160">
 </p>
 
 # Sugoi! Docker
@@ -91,7 +91,7 @@ This builds a signed RPM and asks whether to install it.
 ---
 
 <p align="center">
-  <img src="packaging/VSLogo_Black.png" alt="VANTASEED Studio" width="220">
+  <img src="VSLogo_White.png" alt="VANTASEED Studio" width="220">
   <br>
   Powered by copious amounts of instant noodles, questionable caffeine
   tolerance, and a stubborn refusal to go touch grass.
