@@ -37,7 +37,7 @@ echo "==> staging sources"
 stage="$RPMBUILD/BUILD/${NAME}-${VERSION}"
 rm -rf "$stage"
 mkdir -p "$stage"
-cp ../docker.sh gtk/sugoi-docker.py gtk/sugoi-docker.desktop \
+cp docker.sh gtk/sugoi-docker.py gtk/sugoi-docker.desktop \
    README.md LICENSE VSLogo_Black.png VSLogo_White.png gtk/github-mark.svg \
    "$stage/"
 cp -r gtk/icons "$stage/icons"
