@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Build artifacts
+packaging/dist/
+packaging/sugoi-docker-pubkey.asc
+
+# RPM build leftovers
+*.rpm
+*.deb
+*.AppImage
+*.tar.gz
+
+# Master icon source (not used by the build)
+packaging/sugoidocker.png

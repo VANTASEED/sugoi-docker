@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Sugoi! Docker
+Name[en]=Sugoi! Docker
+Comment=Start/stop the Docker service and run common commands
+Comment[en]=Start/stop the Docker service and run common commands
+Exec=sugoi-docker
+Icon=sugoi-docker
+Terminal=false
+Categories=System;Utility;
+StartupNotify=true
